@@ -1,0 +1,65 @@
+
+.overlay {
+  height: 100%;
+  width: 100%;
+  background: gray;
+  position: fixed;
+  z-index: 3;
+  opacity: 0.6;
+}
+.confirmation .modal {
+  position: fixed;
+  height: 275px;
+  width: 500px;
+  background: #fff;
+  z-index: 5;
+  margin: auto;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  border-radius: 10px; 
+}
+.confirmation .modal .modal-header {
+  position: relative;
+}
+.confirmation .modal .modal-header .close-modal {
+  position: absolute;
+  top: -3px;
+  right: -3px;
+  background: red;
+  width: 21px;
+  text-align: center;
+  color: white; 
+  border-radius: 100px;
+  padding: 3px 4px 5px 5px;
+}
+.modal-body {
+  padding-top: 28px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.modal-footer {
+  position: absolute;
+  bottom: 0;
+  border-top: 1px solid #f1f1f1;
+  width: 92%;
+  padding: 4%;
+}
+.modal-footer .btn-container {
+  position: relative;
+  bottom: 0
+}
+.fade-in {
+  animation: fadeIn ease 40ms;
+}
+@keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
+}
+.dp-txt {
+  min-width: 270px;
+  font-size: 2rem;
+  font-weight:  bold;
+  padding: 10px;
+}

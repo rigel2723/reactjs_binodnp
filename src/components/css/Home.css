@@ -1,0 +1,137 @@
+.head-container {
+  display: inline-flex;
+  background: #03a9f4;
+  width: 100%;
+  height: auto;
+  padding: 10px 0;
+  align-items: center;
+  color: #fff;
+  border-bottom: 1px solid #484848;
+  justify-content: space-between;
+  flex-flow: wrap;
+  position: fixed;
+  left: 0;
+  z-index: 2;
+}
+.head-container .upload,
+.head-container .pager ,
+.head-container .delete-photo-container {
+  cursor:  pointer;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 12px;
+}
+.head-container .pager select {
+  height: 100%;
+  background: transparent;
+  border: 1px solid #fff;
+  color: #fff;
+  font-size: 16px;
+  border-radius: 5px;
+}
+.per-page-lbl {
+  height: 100%;
+  font-size: 13px;
+  display: inline-flex;
+  align-items: center;
+}
+.head-container .pager select:focus {
+  outline: none;
+}
+.head-container .pager select option{
+  color: black;
+}
+.r-menu {
+  display: inline-flex;
+  right: 10px;
+}
+.upload, .pager {
+  margin: 0px 10px;
+}
+.l-menu {
+  display: inline-flex;
+  left: 10px;
+  font-size: 30px;
+  font-weight: bold;
+  padding-left:10px;
+}
+.delete-photo-container .delete-photo{
+  padding: 7px 10px;
+  font-size: 16px;
+  border:none;
+  color: #484848;
+}
+.all-photos {
+  display: inline-flex;
+  margin-top: 105px;
+  flex-flow: wrap;
+  justify-content: center;
+}
+.photo-container {
+  margin: 10px;
+  position: relative;
+}
+.photo-container .album {
+  font-size: 14px;
+}
+.photo-container .name {
+  font-size: 14px;
+  font-weight: bold;
+}
+.img img {
+  width: 300px;
+  height: 300px;
+  border: 1px solid #484848;
+}
+.inp-cb {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+}
+.inp-cb input {
+  transform: scale(1.5);
+  display: none;
+}
+.inp-cb input:checked {
+  display: block!important;
+  position: absolute;
+  z-index: 1;
+}
+.inp-cb input:checked + div.highlight {
+  display: block!important;
+  background: white!important;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  position: absolute;
+  opacity: 0.2;
+}
+#load-more {
+  padding: 10px;
+  border-radius: 7px;
+  outline: none;
+  border: none;
+  font-size: 15px;
+  margin-bottom: 10px;
+  background: #03A9F4;
+  color: white;
+  display: inline-flex;
+  align-items: center;
+}
+.alert {
+  position: fixed;
+  z-index: 9;
+  background: #69b3ef;
+  padding: 10px 70px;
+  top: 69px;
+  right: 0;
+  left: 0;
+  margin: auto;
+  width: fit-content;
+  color: white;
+  border-radius: 7px;
+  box-shadow: 1px 1px 0px 0px black;
+}
