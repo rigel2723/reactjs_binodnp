@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './css/Home.css';
 import Upload from './Upload'
 import Confirmation from './Confirmation'
@@ -46,11 +46,11 @@ class Home extends React.Component {
           <div className="alert">{this.state.showNotif.message}</div> 
         }
         {
-           showModal == true &&
+           showModal === true &&
           <Upload toggleModal={this.toggleModal} />
         }
         {
-           showConfirmation == true &&
+           showConfirmation === true &&
           <Confirmation confirmDelete={this.confirmDelete} />
         }
         <div className="head-container">
@@ -58,12 +58,12 @@ class Home extends React.Component {
           <div className="r-menu">
             {Object.keys(this.state.selectedImage).length > 0 &&
               <div className="delete-photo-container" onClick={this.showConf}>
-                <img src={require('./../assets/image/delete_w.png')} width="27px" draggable="false" />
+                <img src={require('./../assets/image/delete_w.png')} width="27px" draggable="false" alt="delete" />
                 <span>Delete</span>
               </div>
             }
             <div className="upload" onClick={this.toggleModal}>
-              <img src={require('./../assets/image/upload_w.png')} width="27px" draggable="false" />
+              <img src={require('./../assets/image/upload_w.png')} width="27px" draggable="false" alt="upload" />
               &nbsp;Upload
             </div>
             <div className="pager">
@@ -93,7 +93,7 @@ class Home extends React.Component {
                         <input type="checkbox" id={'cb_id_'+this.state.docList[index].id} onChange={() => this.selectPhoto(this.state.docList[index])} />
                         <div className="highlight"></div>
                       </div>
-                      <img src={this.state.docList[index].raw} />
+                      <img src={this.state.docList[index].raw}  alt="img" />
                     </div>
                     <div className="name">{this.state.docList[index].name}</div>
                     <div className="album">{this.state.docList[index].album}</div>
@@ -105,7 +105,7 @@ class Home extends React.Component {
             { this.state.showLoadMore &&
               <div>
                 <button id="load-more" onClick={this.load_more}>
-                <img src={require('./../assets/image/load_more_w.png')} width="27px" draggable="false" />
+                <img src={require('./../assets/image/load_more_w.png')} width="27px" draggable="false" alt="load more" />
                   &nbsp;LOAD MORE PHOTOS
                 </button>
               </div>
@@ -180,7 +180,7 @@ class Home extends React.Component {
     fetch("http://localhost:8888/photos/", requestOptions)
       .then(res => res.json())
       .then(async (result) => {
-        if (result.message == 'OK') {
+        if (result.message.toLowerCase() === 'ok') {
           await this.setState({currentPage: 0})
           await this.getList()
           await this.setState({selectedImage: {}})
@@ -194,7 +194,9 @@ class Home extends React.Component {
   async toggleModal(evt) {
     await this.setState({showModal: !this.state.showModal})
     // RELOAD PAGE IF EVT=TRUE
+    console.log(evt)
     if (evt === true) {
+      await this.setState({ docList: {} });
       await this.setState({currentPage: 0})
       await this.getList()
     }

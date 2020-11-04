@@ -40,7 +40,7 @@ export default  class Upload extends Component {
               </div>
               <div className="input-file-container">
                 <label htmlFor="input-file" className="lbl-input-file">
-                  <img src={require('./../assets/image/upload_w.png')} width="27px" draggable="false" />
+                  <img src={require('./../assets/image/upload_w.png')} width="27px" draggable="false" alt="upload" />
                   &nbsp;SELECT FILE TO UPLOAD
                   <input type="file" multiple className="input-file" id="input-file" onChange={ (e) => this.handleChange(e.target.files) } accept="image/*" />
                 </label>
@@ -51,7 +51,7 @@ export default  class Upload extends Component {
                 }
                 {this.state.imageList.map((item,index)=>{
                   return (
-                    <img className="prev-image" src={this.state.imageList[index]} key={index} />
+                    <img className="prev-image" src={this.state.imageList[index]} key={index} alt="img" />
                   );
                 })}
               </div>
@@ -63,11 +63,11 @@ export default  class Upload extends Component {
               <div className="btn-container">
                 <button className="cancel" onClick={this.closeModal}>
                   
-                <img src={require('./../assets/image/close_w.png')} width="27px" draggable="false" />
+                <img src={require('./../assets/image/close_w.png')} width="27px" draggable="false" alt="close" />
                 &nbsp;Close
                 </button>
                 <button className="ok" onClick={this.savePhoto}>
-                <img src={require('./../assets/image/upload_w.png')} width="27px" draggable="false" />
+                <img src={require('./../assets/image/upload_w.png')} width="27px" draggable="false" alt="upload" />
                   &nbsp;Upload
                 </button>
               </div>
@@ -105,7 +105,7 @@ export default  class Upload extends Component {
 
   savePhoto(event) {
     event.preventDefault()
-    if (this.state.category == "") {
+    if (this.state.category === "") {
       this.showAlertDialog('Please select image category!', 'error')
       return false
     }
@@ -118,7 +118,6 @@ export default  class Upload extends Component {
     }
     for (let i = 0; i < Object.keys(input_file).length; i ++) {
       formData.append("documents", input_file[i]);
-      console.log(input_file[i])
     }
     const requestOptions = {
       method: 'PUT',
@@ -128,8 +127,7 @@ export default  class Upload extends Component {
     fetch("http://localhost:8888/photos", requestOptions)
       .then(res => res.json())
       .then((result) => {
-        console.log(result)
-        if (result.message.toLowerCase() == 'ok') {
+        if (result.message.toLowerCase() === 'ok') {
           this.showAlertDialog('Success, Photo/s has been saved')
           this.setState({imageList: [], imageInfo: {}})
           this.setState({reloadPage: true})

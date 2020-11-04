@@ -1,9 +1,6 @@
 import React, {Component} from 'react';
 import './css/Confirmation.css';
 export default  class Confirmation extends Component {
-  constructor(props) {
-    super(props)
-  }
   render() {
     return (
       <div className="confirmation">
@@ -18,11 +15,11 @@ export default  class Confirmation extends Component {
               <div className="btn-container">
                 <button className="cancel" onClick={() => this.confirmDelete(false)}>
                   
-                <img src={require('./../assets/image/close_w.png')} width="27px" draggable="false" />
+                <img src={require('./../assets/image/close_w.png')} width="27px" draggable="false" alt="cancel" />
                 &nbsp;Cancel
                 </button>
                 <button className="ok" onClick={() => this.confirmDelete(true)}>
-                <img src={require('./../assets/image/check_w.png')} width="27px" draggable="false" />
+                <img src={require('./../assets/image/check_w.png')} width="27px" draggable="false"  alt="confirm"/>
                   &nbsp;Confirm
                 </button>
               </div>
