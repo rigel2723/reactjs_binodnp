@@ -116,7 +116,6 @@ class Home extends React.Component {
   }
   confirmDelete(val) {
     this.setState({showConfirmation: false})
-    console.log(val)
     if (val === true) {
       this.deletePhotos()
     }
@@ -194,7 +193,6 @@ class Home extends React.Component {
   async toggleModal(evt) {
     await this.setState({showModal: !this.state.showModal})
     // RELOAD PAGE IF EVT=TRUE
-    console.log(evt)
     if (evt === true) {
       await this.setState({ docList: {} });
       await this.setState({currentPage: 0})
